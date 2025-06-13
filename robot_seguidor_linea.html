@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robot Seguidor de Línea - Xavier Guamán</title>
+  <style>
+    :root {
+      --color-primario: #0c3b65;
+      --color-secundario: #10b981;
+      --color-fondo: #b9d9f5;
+      --color-blanco: #ffffff;
+    }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(#ffffff);
+  margin: 0;
+  padding: 40px; /* márgenes blancos alrededor del contenido */
+  color: #333;
+}
+
+main {
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: var(--color-blanco);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+   
+    header {
+      background: linear-gradient(-90deg, var(--color-primario), var(--color-secundario));
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    header img.logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 150px;
+    }
+
+    section {
+      margin-bottom: 100px;
+    }
+  h1 {
+  color: #e0f1ff;
+  text-shadow: 1px 1px 2px #004466;
+  font-weight: bold;
+}
+ h2, h3 {
+      color: var(--color-primario);
+    }
+    .objetivos ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    .galeria {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .galeria img {
+      width: 400px;
+      height: auto;
+      border: 3px solid var(--color-primario);
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    video {
+      display: block;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 720px;
+      border: 3px solid var(--color-secundario);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .boton-descarga {
+      display: block;
+      width: fit-content;
+      margin: 0 auto 40px;
+      padding: 12px 20px;
+      background-color: var(--color-secundario);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .boton-descarga:hover {
+      background-color: #059669;
+    }
+    footer {
+      background-color: var(--color-primario);
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo_colegio.png" alt="Logo del Colegio" class="logo">
+    <h1>Robot Seguidor de Línea</h1>
+    <p>Xavier Guamán - 3ero Mecatrónica<br>Colegio de Bachillerato Ricaurte - 2025</p>
+  </header>
+
+  <main>
+    <a class="boton-descarga" href="#" onclick="window.print(); return false;">Descargar como PDF</a>
+
+    <section>
+      <h2>Resumen</h2>
+      <p>
+        Este proyecto consiste en el diseño y construcción de un robot capaz de seguir de manera autónoma una línea trazada sobre una superficie. El propósito principal es demostrar que, con conocimientos básicos de electrónica, programación y diseño, es posible crear sistemas autónomos funcionales. 
+
+Este proyecto busca motivar a otros estudiantes e instituciones educativas a involucrarse en el desarrollo de la robótica escolar, aplicando de forma práctica lo aprendido en el aula.
+      </p>
+    </section>
+
+    <section>
+      <h2>Objetivos</h2>
+      <h3>Objetivo General</h3>
+      <p>
+        Diseñar y construir un robot seguidor de línea que utilice sensores para detectar y seguir trayectorias, desplazándose de forma autónoma sobre un entorno.
+      </p>
+      <h3>Objetivos Específicos</h3>
+      <ul>
+        <li>Aplicar conocimientos de electrónica básica en un proyecto real.</li>
+        <li>Integrar y calibrar sensores infrarrojos para el seguimiento de líneas.</li>
+        <li>Diseñar y ensamblar una estructura mecánica estable y funcional mediante impresión 3D.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Metodología</h2>
+
+      <h3>1. Investigación</h3>
+      <p>
+        Para iniciar se llevó a cabo una investigación sobre el funcionamiento de robots seguidores de línea, abarcando temas como el uso de sensores infrarrojos, controladores lógicos (ESP32) y principios de diseño estructural.
+
+        Con estos conceptos se procede a seleccionar los componentes necesarios.
+      </p> 
+<section>
+  <h2>Componentes del Proyecto</h2>
+  <div style="overflow-x:auto;">
+    <table style="width:100%; border-collapse: collapse; font-family: 'Segoe UI', sans-serif;">
+      <thead style="background: linear-gradient(90deg, #1e3a8a, #10b981); color: white;">
+        <tr>
+          <th style="padding: 12px; border: 1px solid #ccc;">Componente</th>
+          <th style="padding: 12px; border: 1px solid #ccc;">Descripción Técnica</th>
+          <th style="padding: 12px; border: 1px solid #ccc;">Especificaciones</th>
+          <th style="padding: 12px; border: 1px solid #ccc;">Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #f9f9f9;">
+          <td style="padding: 10px; border: 1px solid #ddd;">ESP32</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Microcontrolador WiFi + Bluetooth</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">32 bits, dual-core, 240MHz, 3.3V</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align:center;">1</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">Sensores Infrarrojos (IR)</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Detección de línea mediante reflexión</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Salida digital, distancia efectiva: 0.5-1cm</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align:center;">2</td>
+        </tr>
+        <tr style="background-color: #f9f9f9;">
+          <td style="padding: 10px; border: 1px solid #ddd;">Motor DC</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Motor de corriente continua para ruedas</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">6V, 150 RPM, eje de 6 mm</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align:center;">2</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">Driver L298N</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Controlador de motores dual</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Voltaje: 5-35V, Corriente máx: 2A</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align:center;">1</td>
+        </tr>
+        <tr style="background-color: #f9f9f9;">
+          <td style="padding: 10px; border: 1px solid #ddd;">Chasis 3D</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Estructura impresa personalizada</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Diseño en Fusion 360, PLA</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align:center;">1</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">Ruedas</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Ruedas de plástico acopladas</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Diámetro: 65 mm, ancho: 25 mm</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align:center;">2</td>
+        </tr>
+        <tr style="background-color: #f9f9f9;">
+          <td style="padding: 10px; border: 1px solid #ddd;">Batería</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Batería recargable para alimentación</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Li-ion 7.4V 2200mAh</td>
+          <td style="padding: 10px; border: 1px solid #ddd; text-align:center;">1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+      <h3>2. Diseño del Robot</h3>
+      <p>
+        Se realizó un boceto inicial del robot y se modeló en Fusion 360 para definir la ubicación óptima de cada componente (sensores, motores y placa de control).
+      </p>
+       <div class="galeria">
+<figure>
+        <img src="robot_seguidor_linea_foto1.jpg" alt="Modelo 3D del robot en Fusion 360">
+        <figcaption>Modelo 3D del robot en Fusion 360</figcaption>
+        </figure>
+      </div>
+    </section>
+
+      <h3>3. Impresión 3D</h3>
+      <p>
+        La carcasa del robot fue fabricada utilizando una impresora 3D con filamento PLA, seleccionando este material por su accesibilidad, resistencia y facilidad de impresión.
+      </p>
+ <div class="galeria">
+       <figure>
+        <img src="robot_seguidor_linea_foto2.jpg" alt="Robot impreso y ensamblado">
+<figcaption>Robot impreso y ensamblado</figcaption>
+</figure>
+
+      </div>
+    </section>
+    
+      <h3>4. Ensamblaje</h3>
+      <p>
+        Se ensamblaron todos los componentes electrónicos y mecánicos. Los sensores se colocaron en la parte frontal, los motores a los lados y el ESP32 al centro, logrando una distribución equilibrada para el desplazamiento.
+      </p>
+
+      <div class="galeria">
+<figure>
+        
+        <img src="robot_seguidor_linea_foto3.jpg" alt="Robot listo para pruebas">
+       <figcaption>Robot listo para pruebas</figcaption>
+</figure>
+
+      </div>
+    </section>
+
+    <h3>5. Programación </h3>
+      <p>
+       Para la programación se hace uso de la plataforma arduino IDE, la programación del robot le dice al ESP 32 cómo leer los sensores que detectan la línea en el suelo. Según lo que detectan esos sensores, el Esp32 controla los motores para que el robot gire o siga derecho y no se salga de la línea.
+El programa usa instrucciones que responden “si el sensor izquierdo no ve la línea, gira a la izquierda” o “si ambos sensores están sobre la línea, sigue derecho”. Así, el robot puede moverse solo y seguir la línea sin que alguien lo controle.
+
+
+</p>
+
+      <div class="galeria">
+  <figure>
+        
+        <img src="programa1.jpg" alt="Declaración de pines">
+       <figcaption>Declaración de pines</figcaption>
+  </figure>
+
+  <figure>
+        <img src="programa2.jpg" alt="Lógica de control de robot">
+ 	      <figcaption>Lógica de control del robot</figcaption>
+  </figure>
+      </div>
+    </section>
+
+       <section>
+
+      <h2>Resultados</h2>
+      <p>
+        El robot logró seguir correctamente una línea negra sobre superficie blanca, adaptándose a curvas suaves y manteniendo la trayectoria. Se comprobó la correcta comunicación entre sensores y microcontrolador, y se verificó la eficiencia del diseño estructural. El proyecto generó gran interés entre los compañeros y motivó conversaciones sobre posibles mejoras futuras, como el uso de algoritmos más avanzados o control mediante Bluetooth.
+      </p> 
+<section style="text-align: center;">
+  <figure>
+      <video controls>
+        <source src="robot_video.mp4" type="video/mp4">
+        </video>
+      	<figcaption>Prueba de Funcionamiento</figcaption>
+  </figure>
+
+    </section>
+
+    <section>
+      <h2>Conclusiones</h2>
+      <p>
+        La realización de este robot permitió aplicar de forma práctica los conocimientos adquiridos en clase y reforzar habilidades de diseño, programación y resolución de problemas. Se concluye que proyectos de robótica son una herramienta poderosa para fomentar el aprendizaje activo, despertar el interés científico en los estudiantes y desarrollar capacidades técnicas útiles para su futuro profesional.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Xavier Guamán - Proyecto Escolar de Tesis</p>
+  </footer>
+</body>
+</html>
